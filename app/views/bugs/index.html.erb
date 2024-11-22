@@ -1,1 +1,11 @@
 <h1 class="text-3xl">Bugs</h1>
+
+<%= link_to "Submit a new bug", new_bug_path %>
+<ol>
+    <% @bugs.each do |bug| %>
+        <li>
+            <h2><%= bug.title %></h2>
+            <p><%= bug.description %></p>
+        </li>
+    <% end %>
+</ol>
