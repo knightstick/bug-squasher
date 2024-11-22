@@ -1,23 +1,33 @@
-<h1 class="text-3xl">Submit a Bug</h1>
+<div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="sm:mx-auto sm:w-full sm:max-w-md">
+  <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Submit a Bug</h1>
+</div>
 
-<%= form_with model: @bug do |form| %>
-    <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-        <% @bug.errors.full_messages_for(:title).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py8 px-4 shadow sm:rounded-lg sm:px-10">
+        <%= form_with model: @bug, class: "space-y-6" do |form| %></div>
+            <div>
+                <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+                <div class="mt-1">
+                    <%= form.text_field :title, class: "appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                    <% @bug.errors.full_messages_for(:title).each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                </div>
+            </div>
 
-    <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
-        <% @bug.errors.full_messages_for(:description).each do |message| %>
-            <div><%= message %></div>
-        <% end %>
-    </div>
+            <div>
+                <%= form.label :description, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+                <%= form.text_area :description, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+                <% @bug.errors.full_messages_for(:description).each do |message| %>
+                    <div><%= message %></div>
+                <% end %>
+            </div>
 
-    <div>
-        <%= form.submit %>
+            <div>
+                <%= form.submit %>
+            </div>
+    <% end %>
+
     </div>
-<% end %>
+</div>
